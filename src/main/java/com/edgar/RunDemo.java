@@ -11,5 +11,10 @@ public class RunDemo {
         Game game = context.getBean("game", Game.class);
         System.out.println(game.playGame());
 
+        System.out.println("There are " + context.getBeanDefinitionCount() + " beans.");
+        for (String beanName : context.getBeanDefinitionNames()) {
+            System.out.println(beanName);
+        }
+
     }
 }

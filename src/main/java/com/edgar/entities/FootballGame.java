@@ -1,15 +1,23 @@
 package com.edgar.entities;
 
+import javax.sql.DataSource;
+
 public class FootballGame implements Game{
 
     private Team homeTeam;
     private Team awayTeam;
+
+    private DataSource dataSource;
 
     public FootballGame() {}
 
     public FootballGame(Team homeTeam, Team awayTeam) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
+    }
+
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
 
     @Override
