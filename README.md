@@ -2,3 +2,5 @@
 - First: Java Based Configuration
 
 -Second: Creation of second configuration class and usage of Import annotation
+
+-Third: Used Autowired, Resource, Component and ComponentScan annotations

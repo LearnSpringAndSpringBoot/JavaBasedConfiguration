@@ -1,30 +1,37 @@
 package com.edgar;
 
 import com.edgar.entities.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @Configuration
-@Import(InfrastructureConfig.class)
+@ComponentScan(basePackages = "com.edgar")
 public class AppConfig {
 
+    @Autowired
+    private DataSource dataSource;
+
+    //This autowires "by type", searches for a bean of type Team
+    @Autowired
+    @Qualifier("barcelona")
+    private Team home;
+
+    //This autowires "by bean name", searches for a bean with name realMadrid
+    @Resource
+    private Team realMadrid;
+
     @Bean
-    public Game game(DataSource dataSource){
-        FootballGame footballGame = new FootballGame(barca(), real());
+    public Game game(){
+        FootballGame footballGame = new FootballGame(home, realMadrid);
         footballGame.setDataSource(dataSource);
         return footballGame;
     }
 
-    @Bean
-    public Team barca() {
-        return new Barcelona();
-    }
-
-    @Bean
-    public Team real() {
-        return new RealMadrid();
-    }
 }
