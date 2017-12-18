@@ -2,7 +2,7 @@ package com.edgar.entities;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Barcelona implements Team{
 
     @Override

@@ -4,3 +4,5 @@
 -Second: Creation of second configuration class and usage of Import annotation
 
 -Third: Used Autowired, Resource, Component and ComponentScan annotations
+
+-Fourth: Showed usage of Scope
